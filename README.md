@@ -53,6 +53,12 @@ jobs:
 
       # Do job work here
 
+      # NOTE: Running `sam build` prior ensures Lambda function dependencies will be properly
+      # bundled in the artifact.
+      - name: SAM build
+        id: sam-build
+        shell: bash
+        run: sam build
 
       - name: Assume AWS Credentials
         uses: ServerlessOpsIO/gha-assume-aws-credentials@v1
