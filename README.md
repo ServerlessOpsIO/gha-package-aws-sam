@@ -6,7 +6,7 @@ This GitHub Action allows you to package an AWS SAM application for later deploy
 
 This action purposely does not allow for overriding SAM CLI's template file resolution logic. THIS IS INTENTIONAL. To handle non-standrad template names, multiple templates, or templates in non-stndard locations run `sam buld` before this action. That will result in the creation of a `template.yaml` under `.aws-sam` which SAM CLI will find and use. This will ensure that `sam package` will correctly bundle function dependencies when creationg funtion artifacts.
 
-_*NOTE: This workflow is opinionated and meets the needs of its author. It is provided publicly as a reference for others to use and modify as needed.*_
+_**NOTE: This workflow is opinionated and meets the needs of its author. It is provided publicly as a reference for others to use and modify as needed.**_
 
 The `gha-package-aws-sam` action performs the following tasks:
 1. Determines S3 bucket and prefix
