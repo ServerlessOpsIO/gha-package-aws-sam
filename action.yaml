@@ -6,6 +6,10 @@ inputs:
     description: AWS region to deploy to
     required: false
     default: us-east-1
+  template_file:
+    description: Path to SAM template file
+    required: false
+    default: template.yaml
   packaged_template_file:
     description: Path to packaged SAM template file
     required: false
@@ -57,9 +61,11 @@ runs:
         S3_BUCKET: ${{ steps.set-sam-s3-bucket.outputs.s3-bucket }}
         S3_PREFIX: ${{ steps.set-sam-s3-prefix.outputs.s3-prefix }}
         PACKAGED_TEMPLATE: ${{ inputs.packaged_template_file }}
+        TEMPLATE_FILE: ${{ inputs.template_file }}
       shell: bash
       run: |
         sam package \
+          --template ${TEMPLATE_FILE} \
           --s3-bucket ${S3_BUCKET} \
           --s3-prefix ${S3_PREFIX} \
           --region ${{ inputs.aws_account_region }} \
