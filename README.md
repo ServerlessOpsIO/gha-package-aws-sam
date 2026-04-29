@@ -17,7 +17,8 @@ See below for inputs, outputs, and examples.
 
 ### Inputs
 
-- `packaged_template_file` (optional): path to which packaged template should be written
+- `template_file` (optional): path to SAM template file.
+- `packaged_template_file` (optional): path to which packaged template should be written.
 - `aws_account_region` (optional): AWS region to use for SAM packaging.
 - `sam_s3_bucket` (optional): S3 bucket for SAM deployment.
 - `sam_s3_prefix` (optional): S3 prefix for SAM deployment.
