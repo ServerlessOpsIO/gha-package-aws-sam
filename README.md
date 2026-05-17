@@ -49,7 +49,7 @@ jobs:
     steps:
       - name: Setup job workspace
         id: setup-workspace
-        uses: ServerlessOpsIO/gha-setup-workspace@v1
+        uses: ServerlessOpsIO/gha-setup-workspace@v2
 
 
       # Do job work here
