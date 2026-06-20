@@ -4,7 +4,7 @@ Package AWS SAM artifacts.
 
 This GitHub Action allows you to package an AWS SAM application for later deployment.
 
-This action purposely does not allow for overriding SAM CLI's template file resolution logic. THIS IS INTENTIONAL. To handle non-standrad template names, multiple templates, or templates in non-stndard locations run `sam buld` before this action. That will result in the creation of a `template.yaml` under `.aws-sam` which SAM CLI will find and use. This will ensure that `sam package` will correctly bundle function dependencies when creationg funtion artifacts.
+for the majority of usecases the `sam build` command should be run prior to this action. That will ensure that function dependencies are properly bundled in the artifact that is created when `sam package` is run.
 
 _**NOTE: This workflow is opinionated and meets the needs of its author. It is provided publicly as a reference for others to use and modify as needed.**_
 
@@ -17,7 +17,7 @@ See below for inputs, outputs, and examples.
 
 ### Inputs
 
-- `template_file` (optional): path to SAM template file.
+- `template_file` (optional): path to SAM template file. The default value is `.aws-sam/build/template.yaml` which assumes you have previously run `sam build` which will create that file.
 - `packaged_template_file` (optional): path to which packaged template should be written.
 - `aws_account_region` (optional): AWS region to use for SAM packaging.
 - `sam_s3_bucket` (optional): S3 bucket for SAM deployment.
